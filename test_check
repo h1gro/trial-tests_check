@@ -1,0 +1,16 @@
+int Tests_Check()
+{
+    FILE * file = fopen("tests.txt", "r");
+    while( fscanf(file, "a = %lg, b = %lg, c = %lg, x1exp = %lg, x2exp = %lg"
+                        "nRoots = %d", &str_test.a, &str_test.b, &str_test.c, 
+                         &str_test.x1exp, &str_test.x2exp, &str_test.nRoots) == 6)
+    {
+    int check = 0;
+    check = tester(str_test, nTest);
+    if (check == TEST_FAILED)
+    {
+        return INCORRECT_TEST;
+    }
+    return ALL_TESTS_DONE;
+    }
+}
